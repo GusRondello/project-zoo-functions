@@ -1,7 +1,7 @@
-const data = require('../data/zoo_data');
+const { species } = require('../data/zoo_data');
 
-function getAnimalsOlderThan(animal, age) {
-// if para checar se o animal tem tal age dentro do filter
+function getAnimalsOlderThan(animal, idade) {
+  const filtroNome = species.find(({ name }) => name === animal);
+  return filtroNome.residents.every(({ age }) => age >= idade);
 }
-
 module.exports = getAnimalsOlderThan;
