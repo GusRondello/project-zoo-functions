@@ -1,5 +1,7 @@
 const { species } = require('../data/zoo_data');
 
+// Tive a ajuda de Leo Araujo no terceiro dia de projeto nos requisito 4 e 5 para entender qual era o melhor HOF a ser utilizado.
+
 function countAnimals(...animal) {
   if (animal.length === 0) {
     const todosAnimais = {};
