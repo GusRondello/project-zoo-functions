@@ -19,12 +19,3 @@ function calculateEntry(entrants) {
 }
 
 module.exports = { calculateEntry, countEntrants };
-
-/* console.log(countEntrants([
-  { name: 'Gustavo Rondello', age: 5 },
-  { name: 'Simas Turbo', age: 5 },
-  { name: 'Kifoda Daruku', age: 5 },
-  { name: 'Kaique Candonu Pinto', age: 18 },
-  { name: 'Alan Bida Noku', age: 18 },
-  { name: 'Sheila Meusako', age: 50 },
-])); */
