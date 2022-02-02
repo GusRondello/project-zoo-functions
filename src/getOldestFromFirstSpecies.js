@@ -1,24 +1,25 @@
 const { species, employees } = require('../data/zoo_data');
 
+// Tive ajuda do Imar Mendes para realizar organizar as repostas das funções criadas e também da Ana na mentoria para realizar as HOF's corretas para as funções.
+
 function getEmployeResponsible(funcionario) {
-  const firstIdResponsible = employees.find((employee) => employee.id === funcionario).responsibleFor[0];
+  const firstIdResponsible = employees
+    .find((employee) => employee.id === funcionario).responsibleFor[0];
   return firstIdResponsible;
 }
 
 function getAnimalResidents(idAnimalResponsible) {
   const animalResidents = species.find((especie) => especie.id === idAnimalResponsible).residents;
   const olderResidentAge = animalResidents.reduce((acc, cur) => (cur.age > acc ? cur.age : acc), 0);
-  const olderResidet = animalResidents.filter((resident) => resident.age === olderResidentAge); // preciso pegar as keys value para registrar em uma array e retornar como resposta da função final
-  return olderResidet;
+  const olderResident = animalResidents.filter((resident) => resident.age === olderResidentAge); // preciso pegar as keys value para registrar em uma array e retornar como resposta da função final
+  console.log(olderResident);
+  return [olderResident[0].name, olderResident[0].sex, olderResident[0].age];
 }
 
 function getOldestFromFirstSpecies(id) {
+  const idFuncionario = getEmployeResponsible(id);
+  const resultado = getAnimalResidents(idFuncionario);
+  return resultado;
 }
-
-// console.log(test);
-console.log(getAnimalResidents('533bebf3-6bbe-41d8-9cdf-46f7d13b62ae'));
-// console.log(getEmployeResponsible('9e7d4524-363c-416a-8759-8aa7e50c0992'));
-// console.log(checkOldestAnimal());
-// console.log(getOldestFromFirstSpecies('9e7d4524-363c-416a-8759-8aa7e50c0992'));
 
 module.exports = getOldestFromFirstSpecies;
